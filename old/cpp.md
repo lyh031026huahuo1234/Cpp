@@ -301,6 +301,7 @@ void fg(const A*this) const {
   - superclass
   - subclasses
   - 拿已有的类定义新的类，继承全部的内容
+  - 子类从父类继承得到的函数如果被**overload**那么父类的其他**overload**将不会存在
   ~~~
   类中：
   public
