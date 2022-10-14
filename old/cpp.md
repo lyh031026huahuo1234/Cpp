@@ -33,6 +33,7 @@ string *ps;
 - s1 = s2;
 - string *ps1,*ps2;
 - ps1 = ps2;
+- substr(start,length)取子字符串
 
 ### new&delete
 内存空间的申请和清除
@@ -260,14 +261,26 @@ endif
     ~~~
 
     ## const objects
-   - const的类
+   - const的对象
    - const的成员变量
-
+   - 如果类中的成员函数不会修改成员变量可以在其后面加上关键字const
+   - 如果有一个const类型的对象，那么const的类型的成员函数可以调用，非const函数的成员函数不能调用
+～～～
+类中的const函数
+void fg() const {
+  ...
+}
+实际上为
+void fg(const A*this) const {
+  ...
+}
+～～～
    ## static
+   - 在函数中有static类型的对象，重复调用这个函数只会构造一次这个对象 
    - eg:类中的 staic in m_h 会被所有的对象共享，在全局数据区，注意:一定要在对应的.cpp 文件中声明一个对应的全局变量
    - 类中的静态变量
-   - 类中的静态函数：只能访问静态变量，使静态变量的访问受限，避免全局变量 
-  
+   - 类中的静态函数：只能访问静态变量，使静态变量的访问受限，避免全局变量，没有制造对象时就可以调用，（相当于类的函数） 
+   - 静态成员变量可以被所有的对象共享
   ## avoiding name clashes
   ~~~
   namespace old1{
