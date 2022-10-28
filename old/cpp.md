@@ -383,22 +383,47 @@ void fg(const A*this) const {
 
   ## templates(模板)
   - 泛型
-  ~~~
+  ```C++
   template <class T>
   可以用T来带指任意的类型
   void swap(T& a,T& b);
-  ~~~
-  ~~~
-  class vector{
-    ...
-  }
-  函数的定义：
-  template <class T>
+  ```
+  - 使用方法
+  ```C++
+  template < class T >
+  T foo(int i) {/* ... */}
+  foo<int>(i);
+  foo<double>(i); //对T的类型进行制定 
+  ```
+  - 类模版的类声明
+  ```C++
+  template < class T >
+  class Vector {
+    /*...*/
+  };
+
+  //函数的定义：
+  //类模版中的函数都是函数模版
+  template <class T>//important
   T& vector<T> :: operator[](int index){
       return content[index];
-  }
+  }//important
+  ```
 
-  ~~~
+  - 模版含有两个参数
+  ```C++
+  template <class T, int bounds = 100 >
+  class FixedVector {
+    /* */
+  };
+
+  //Usage
+  FixedVector<int,50> v1;
+  FixedVector<int,5*10> v2;
+  FixedVector<int> v3;//使用默认值
+  ```
+
+
 
   ## 异常处理
   ~~~
